@@ -33,7 +33,7 @@ public class K2 {
 Add-Type -TypeDefinition $pythonmods -Language CSharp
 
 $pl = [Byte[]] (
-    # Enter payload here such as msfvenom
+    # Enter Payload Here
 )
 
 $plSize = $pl.Length
