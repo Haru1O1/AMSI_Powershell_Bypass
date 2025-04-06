@@ -20,10 +20,15 @@ public class K2 {
     public static extern bool vp(IntPtr lpAddress, UIntPtr dwSize, uint flNewProtect, out uint lpflOldProtect);
 ```
 This part of the code defines a class named K2, which calls Windows API functions using DllImport. 
+
 The first import is "GetProcAddress," which is obfuscated by splitting into "Get" + "Proc" + "Address." 
 - This import is used to get the address
+
+
 The second import is "LoadLibrary" obfuscated by splitting into "Load" + "Library".
 - This import is to load a dynamic link library, also known as a DLL, into memory
+
+
 The third import is "VirtualProtect" obscured by splitting into "Virtual" + "Protect".
 - This import is used to modify a region of memory's protection, ie, making it writable, executable, etc.
 
@@ -54,6 +59,8 @@ This method creates a method called CreateThread, which executes code at the add
 ```
 The import is "VirtualAlloc" obfuscated by splitting into "Virtual" + "Alloc".
 - This import is used to allocate memory for our shellcode
+
+
 The helper function Copy is used to copy bytes to a specific memory location
 
 # 5.
@@ -107,11 +114,11 @@ while ($true) {
     Start-Sleep -Seconds 60
 }
 ```
-Infinite loop that waits 60 seconds between each iteration of the loop
+Infinite loop that waits 60 seconds between each iteration of the loop. Used to keep the current PowerShell window running.
 
 # Conclusion
 This script bypasses Windows AMSI and executes shellcode using PowerShell. Even if the PowerShell window is given the command Ctrl-C, it will continue to run in the background. 
 - Terminating the Process
     - Terminate the thread or PowerShell itself using Task Manager.
-    - After the shell code finishes it should cause the thread to terminate
-        - Ex. Reverse Shell, after the attacker terminates the session, the thread should also be terminated
+    - After the shell code finishes, it should cause the thread to terminate
+        - Ex. Reverse Shell -> after the attacker terminates the session, the thread should also be terminated, and with it, PowerShell as well
