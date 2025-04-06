@@ -21,8 +21,6 @@ public class K2 {
 
     [DllImport("kernel32", EntryPoint="Virtual" + "Alloc")]
     public static extern IntPtr va(IntPtr lpAddress, UIntPtr dwSize, uint flAllocationType, uint flProtect);
-    [DllImport("user32.dll", CharSet = CharSet.Auto)]
-    public static extern int MessageBox(IntPtr hwnd, string text, string caption, uint type);
 
     public static void Copy(Byte[] source, Int32 startIndex, IntPtr destination, Int32 length) {
         Marshal.Copy(source, startIndex, destination, length);
